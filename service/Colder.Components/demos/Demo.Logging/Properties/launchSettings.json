@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Logging.Demo": {
+      "commandName": "Project",
+      "launchUrl": "Home/Index",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5000"
+    }
+  }
+}
