@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "reCZYmMFQ58XQMf7yJcfVNi91GryG/iDviYsriT86hj768lhTmNqxpYpxJ6fVGo0PJ0E0jNrE+ui8nZ8jposdw==",
+  "success": true,
+  "projectFilePath": "D:\\furryshelter\\dockertest\\coretestdocker\\coretestdocker\\coretestdocker.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yxb\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.14\\microsoft.visualstudio.azure.containers.tools.targets.1.10.14.nupkg.sha512"
+  ],
+  "logs": []
+}
