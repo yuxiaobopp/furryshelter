@@ -1,0 +1,8 @@
+docker 命令
+docker run --name nginx-v1 -p 50001:80 -v /usr/local/nginx/html/dist/:/usr/share/nginx/html  -v /usr/local/nginx/conf/nginx.conf:/etc/nginx/nginx.conf  -v /usr/local/nginx/logs/:/var/log/nginx  -v /usr/local/nginx/conf.d:/etc/nginx/conf.d  -v /usr/local/nginx/conf/log_format.conf:/etc/nginx/log_format.conf -d nginx:latest
+
+cd /usr/share/
+mkdir nginxfront
+cd /etc
+mkdir nginxfront
+docker run --name nginx-v1 -p 80:80 -v /usr/local/nginxfront/html/dist/:/usr/share/nginxfront/html  -v /usr/local/nginxfront/conf/nginx.conf:/etc/nginxfront/nginx.conf  -v /usr/local/nginxfront/logs/:/var/log/nginxfront  -v /usr/local/nginxfront/conf.d:/etc/nginxfront/conf.d  -v /usr/local/nginxfront/conf/log_format.conf:/etc/nginxfront/log_format.conf -d nginx:latest
