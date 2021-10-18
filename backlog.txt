@@ -1,8 +1,22 @@
-docker 命令
-docker run --name nginx-v1 -p 50001:80 -v /usr/local/nginx/html/dist/:/usr/share/nginx/html  -v /usr/local/nginx/conf/nginx.conf:/etc/nginx/nginx.conf  -v /usr/local/nginx/logs/:/var/log/nginx  -v /usr/local/nginx/conf.d:/etc/nginx/conf.d  -v /usr/local/nginx/conf/log_format.conf:/etc/nginx/log_format.conf -d nginx:latest
 
-cd /usr/share/
-mkdir nginxfront
-cd /etc
-mkdir nginxfront
-docker run --name nginx-v1 -p 80:80 -v /usr/local/nginxfront/html/dist/:/usr/share/nginxfront/html  -v /usr/local/nginxfront/conf/nginx.conf:/etc/nginxfront/nginx.conf  -v /usr/local/nginxfront/logs/:/var/log/nginxfront  -v /usr/local/nginxfront/conf.d:/etc/nginxfront/conf.d  -v /usr/local/nginxfront/conf/log_format.conf:/etc/nginxfront/log_format.conf -d nginx:latest
+server {    
+listen       80;    
+server_name  xxx.furryshelter.com;    
+include log_format.conf;        
+	location / {        
+		root   /usr/share/nginx/html;        
+		index  index.html index.htm;    
+	}
+}
+
+
+docker 命令
+后台web
+docker run --name nginx-admin -p 50001:80 -v /usr/local/nginx/html/dist/:/usr/share/nginx/html  -v /usr/local/nginx/conf/nginx.conf:/etc/nginx/nginx.conf  -v /usr/local/nginx/logs/:/var/log/nginx  -v /usr/local/nginx/conf.d:/etc/nginx/conf.d  -v /usr/local/nginx/conf/log_format.conf:/etc/nginx/log_format.conf -d nginx:latest
+
+
+C端web
+docker run --name nginx-front -p 50002:80 -v /usr/local/nginxfront/html/dist/:/usr/share/nginx/html  -v /usr/local/nginxfront/conf/nginx.conf:/etc/nginx/nginx.conf  -v /usr/local/nginxfront/logs/:/var/log/nginx  -v /usr/local/nginxfront/conf.d:/etc/nginx/conf.d  -v /usr/local/nginxfront/conf/log_format.conf:/etc/nginx/log_format.conf -d nginx:latest
+
+反向代理
+docker run --name nginx-nginx -p 80:80 -v /usr/local/nginx-reverse-proxy/html/:/usr/share/nginx/html  -v /usr/local/nginx-reverse-proxy/conf/nginx.conf:/etc/nginx/nginx.conf  -v /usr/local/nginx-reverse-proxy/logs/:/var/log/nginx  -v /usr/local/nginx-reverse-proxy/conf.d:/etc/nginx/conf.d  -v /usr/local/nginx-reverse-proxy/conf/log_format.conf:/etc/nginx/log_format.conf -d nginx:latest
