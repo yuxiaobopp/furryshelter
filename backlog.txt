@@ -1,7 +1,7 @@
 
 server {    
 listen       80;    
-server_name  xxx.furryshelter.com;    
+server_name  www.furryshelter.com;  #admin.furryshelter.com;    
 include log_format.conf;        
 	location / {        
 		root   /usr/share/nginx/html;        
