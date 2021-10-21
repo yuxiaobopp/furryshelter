@@ -1,7 +1,14 @@
 
+服务结构：
+nginx-nginx  负责通过nginx+域名 定位 转发到 50001 和 50002 两个端口（...可继续配置新的站点）
+nginx-admin 50001 通过nginx 挂载后台接口服务网站
+nginx-front 50002 通过nginx 挂载c端用户站点
+...可继续配置新的站点
+
+
 server {    
 listen       80;    
-server_name  www.furryshelter.com;  #admin.furryshelter.com;    
+server_name  www.furryshelter.com;  #admin.furryshelter.com;    ...+可继续配置新的站点
 include log_format.conf;        
 	location / {        
 		root   /usr/share/nginx/html;        
