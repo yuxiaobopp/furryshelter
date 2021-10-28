@@ -1,0 +1,24 @@
+CREATE TABLE `api_user` (
+	`Id` VARCHAR(50) NOT NULL COMMENT '主键' CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+	`CreateTime` DATETIME NOT NULL COMMENT '创建时间',
+	`CreatorId` VARCHAR(50) NULL DEFAULT NULL COMMENT '创建人Id' CHARACTER SET utf8mb4 COLLATE 'utf8mb4_general_ci',
+	`Deleted` TINYINT(4) NOT NULL DEFAULT '0' COMMENT '否已删除',
+	`UserName` VARCHAR(50) NULL DEFAULT NULL COMMENT '用户名' CHARACTER SET utf8mb4 COLLATE 'utf8mb4_general_ci',
+	`Password` VARCHAR(50) NULL DEFAULT NULL COMMENT '密码' CHARACTER SET utf8mb4 COLLATE 'utf8mb4_general_ci',
+	`RealName` VARCHAR(50) NULL DEFAULT NULL COMMENT '姓名' CHARACTER SET utf8mb4 COLLATE 'utf8mb4_general_ci',
+	`Sex` INT(11) NOT NULL DEFAULT '0' COMMENT '性别(1为男，0为女)',
+	`Birthday` DATE NULL DEFAULT NULL COMMENT '出生日期',
+	`FromSourceId` VARCHAR(50) NULL DEFAULT NULL COMMENT '所属来源Id' CHARACTER SET utf8mb4 COLLATE 'utf8mb4_general_ci',
+   `LoginType` VARCHAR(50) NULL DEFAULT NULL COMMENT '登录方式' CHARACTER SET utf8mb4 COLLATE 'utf8mb4_general_ci',
+	`WxLoginAppId` VARCHAR(50) NULL DEFAULT NULL COMMENT '微信登录后用户appid' CHARACTER SET utf8mb4 COLLATE 'utf8mb4_general_ci',	
+	`AliLoginMemberId` VARCHAR(50) NULL DEFAULT NULL COMMENT '支付宝登录后用户memberid' CHARACTER SET utf8mb4 COLLATE 'utf8mb4_general_ci',	
+	`UserHeadPic` VARCHAR(50) NULL DEFAULT NULL COMMENT '用户头像' CHARACTER SET utf8mb4 COLLATE 'utf8mb4_general_ci',	
+	`UserRemark` VARCHAR(50) NULL DEFAULT NULL COMMENT '用户备注' CHARACTER SET utf8mb4 COLLATE 'utf8mb4_general_ci',	
+	`RelationShipIds` VARCHAR(50) NULL DEFAULT NULL COMMENT '用户关系id关联好友' CHARACTER SET utf8mb4 COLLATE 'utf8mb4_general_ci',	
+	`ArticleIds` VARCHAR(50) NULL DEFAULT NULL COMMENT '用户发表的文章' CHARACTER SET utf8mb4 COLLATE 'utf8mb4_general_ci',		
+	PRIMARY KEY (`Id`) USING BTREE
+)
+COMMENT='C端用户表'
+DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_general_ci
+ENGINE=InnoDB
+;
