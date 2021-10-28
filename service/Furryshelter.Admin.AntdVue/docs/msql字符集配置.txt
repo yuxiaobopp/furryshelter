@@ -1,0 +1,31 @@
+参考https://www.jianshu.com/p/46fe9523137d
+https://www.cnblogs.com/prodigal-son/p/13989400.html
+mysql 8.0 配置文件修改
+
+[client]
+
+default-character-set=utf8mb4
+
+[mysql]
+  
+default-character-set=utf8mb4
+
+[mysqld]
+## Character Settings
+#设置服务端校验规则，如果字符串需要区分大小写，设置为utf8mb4_bin
+skip-character-set-client-handshake
+character-set-client-handshake = FALSE
+#连接建立时执行设置的语句，对super权限用户无效
+character-set-server = utf8mb4
+collation-server = utf8mb4_general_ci
+init_connect='SET NAMES utf8mb4'
+
+## Innodb Settings
+innodb_file_format = Barracuda
+innodb_file_format_max = Barracuda
+innodb_file_per_table = 1
+innodb_large_prefix = ON
+
+创建数据库时候要带上默认字符集参数
+CREATE DATABASE `FurryshelterAdmin` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+mysql数据库生成文件中 创建表 也要指定字符集

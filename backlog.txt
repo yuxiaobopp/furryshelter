@@ -33,7 +33,48 @@ docker run --name nginx-nginx -p 80:80 -v /usr/local/nginx-reverse-proxy/html/:/
 mysql:
 docker run -p 3306:3306 --name mysql \
 -v /usr/local/mysql/conf:/etc/mysql \
--v /usr/local/mysql/logs:/var/log/mysql \
+-v /usr/local/mysql/logs:/var/log/mysql \ 
 -v /usr/local/mysql/data:/var/lib/mysql \
 -e MYSQL_ROOT_PASSWORD=fUrryshelter_db68_$#@justd \
 -d mysql:latest
+ 
+
+docker run -itd --name mysql-m -p 3306:3306 -v /usr/local/mysql/data:/var/lib/mysql/ -e MYSQL_ROOT_PASSWORD=fUrryshelter_db68_$#@justd mysql:latest
+
+apt-get update
+apt-get install vim
+
+vim /etc/mysql/my.cnf
+最后一行加:skip-grant-tables
+
+注释掉skip-grant-tables
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'fUrryshelter_db68_$#@justd';
+
+flush privileges;
+
+
+create database FurryshelterAdmin;
+
+grant all privileges on FurryshelterAdmin.* to root@'localhost';
+flush privileges;
+
+
+导入数据
+docker cp /root/sql/MySQL.sql mysql-m:/
+
+进入数据库容器
+use FurryshelterAdmin;
+source /MySQL.sql;
+
+
+重新部署.netcore
+cd /root
+/bin/bash /root/publish.sh
+
+.netcore内网连接docker mysql
+docker network create -d bridge mysqlbridge
+docker network rm mysqlbridge
+docker network connect mysqlbridge mysql-m
+
+/bin/bash /root/publish.sh
