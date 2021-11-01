@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option csharp_namespace = "FrontGrpcService.Protos";
+
+package user;
+
+// The greeting service definition.
+service User {
+  // ×¢²á
+  rpc UserRegister (RegisterRequest) returns (RegisterReply);
+  // µÇÂ¼
+  rpc UserLgin (LoginRequest) returns (LoginReply);
+
+}
+
+// The request message containing the user's name.
+message RegisterRequest {
+  string name = 1;
+  string password = 2;
+}
+
+// The response message containing the greetings.
+message RegisterReply {
+  string message = 1;
+}
+
+// The request message containing the user's name.
+message LoginRequest {
+    string name = 1;
+  string password = 2;
+}
+
+// The response message containing the greetings.
+message LoginReply {
+  string message = 1;
+}

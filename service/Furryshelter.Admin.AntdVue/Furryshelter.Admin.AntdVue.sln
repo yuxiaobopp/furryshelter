@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05.Coldairarrow.Api", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03.Coldairarrow.IBusiness", "src\Coldairarrow.IBusiness\03.Coldairarrow.IBusiness.csproj", "{4422EF5A-9E20-450D-B0BD-643DED2B9219}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontGrpcService", "FrontGrpcService\FrontGrpcService.csproj", "{0B53BFC6-83EB-4BD9-AB66-EE3796466A6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontGrpcService", "FrontGrpcService\FrontGrpcService.csproj", "{0B53BFC6-83EB-4BD9-AB66-EE3796466A6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

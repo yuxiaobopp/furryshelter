@@ -18,6 +18,10 @@ docker build -t furryadmin .
 docker run --name netcore-furryadmin -d -p 50880:5000 --net mynet --ip=172.25.0.3 -v /etc/localtime:/etc/localtime furryadmin -v ./appsettings.json:/app/appsettings.json
 
 
+docker build -t furryuser .
+
+docker run --name netcore-furryuser -d -p 50881:5000 --net mynet --ip=172.25.1.3 -v /etc/localtime:/etc/localtime furryuser -v ./appsettings.json:/app/appsettings.json
+
 ping 工具安装
 apt-get update && apt-get install iputils-ping
 
