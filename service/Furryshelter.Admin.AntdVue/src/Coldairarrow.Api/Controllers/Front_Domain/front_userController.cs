@@ -1,38 +1,56 @@
 ﻿using Coldairarrow.Business.Front_Domain;
 using Coldairarrow.Entity.Front_Domain;
-using FrontGrpcService.Protos;
-using Grpc.Core;
+using Coldairarrow.Util;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FrontGrpcService.Services
+namespace Coldairarrow.Api.Controllers.Front_Domain
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class UserService : User.UserBase
+    [Route("/Front_Domain/[controller]/[action]")]
+    public class front_userController : BaseApiController
     {
-        private readonly ILogger<UserService> _logger;
-        Ifront_userBusiness _front_userBus { get; }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="logger"></param>
-        public UserService(ILogger<UserService> logger, Ifront_userBusiness front_userBus)
+        #region DI
+        private readonly ILogger<front_userController> _logger;
+
+        public front_userController(ILogger<front_userController> logger, Ifront_userBusiness front_userBus)
         {
             _logger = logger;
             _front_userBus = front_userBus;
         }
 
+        Ifront_userBusiness _front_userBus { get; }
+
+        #endregion
+
+        #region 获取
+
+        [HttpPost]
+        public async Task<PageResult<front_user>> GetDataList(PageInput<ConditionDTO> input)
+        {
+            return await _front_userBus.GetDataListAsync(input);
+        }
+
+        [HttpPost]
+        public async Task<front_user> GetTheData(IdInputDTO input)
+        {
+            return await _front_userBus.GetTheDataAsync(input.id);
+        }
+
+        #endregion
+
+        #region 提交
         /// <summary>
         /// 注册
         /// </summary>
         /// <param name="request"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public override Task<RegisterReply> UserRegister(RegisterRequest request, ServerCallContext context)
+        [HttpPost]
+        public async Task<dynamic> UserRegister(front_userDTO request)
         {
             //var httpContext = context.GetHttpContext();
             //var clientCertificate = httpContext.Connection.ClientCertificate;
@@ -43,29 +61,29 @@ namespace FrontGrpcService.Services
             //});
             if (request == null)
             {
-                return Task.FromResult(new RegisterReply
+                return Task.FromResult(new 
                 {
                     Code = -1,
                     Message = "非法参数"
                 });
             }
 
-            if (request.Password!.Equals(request.Confirmpassword))
+            if (request.Password!.Equals(request.ConfirmPassword))
             {
-                return Task.FromResult(new RegisterReply
+                return Task.FromResult(new 
                 {
                     Code = -1,
                     Message = "两次密码不一致"
                 });
             }
 
-            if (string.IsNullOrWhiteSpace(request.Username) ||
+            if (string.IsNullOrWhiteSpace(request.UserName) ||
                 string.IsNullOrWhiteSpace(request.Password) ||
                 string.IsNullOrWhiteSpace(request.Province) ||
                 string.IsNullOrWhiteSpace(request.City)
                     )
             {
-                return Task.FromResult(new RegisterReply
+                return Task.FromResult(new 
                 {
                     Code = -1,
                     Message = "参数不完整"
@@ -75,7 +93,7 @@ namespace FrontGrpcService.Services
             _logger.LogInformation("注册", JsonConvert.SerializeObject(request));
             //判断
 
-            _front_userBus.AddDataAsync(new front_user
+            await _front_userBus.AddDataAsync(new front_user
             {
                 Sex = request.Sex,
                 Birthday = request.Birthday,
@@ -88,28 +106,37 @@ namespace FrontGrpcService.Services
                 Password = request.Password,
                 Phone = request.Phone,
                 Province = request.Province,
-                RealName = request.Realname,
-                UserName = request.Username,
+                RealName = request.RealName,
+                UserName = request.UserName,
             });
-            return Task.FromResult(new RegisterReply
+
+            return Task.FromResult(new 
             {
                 Code = 1,
                 Message = "注册成功"
             });
         }
-
-        /// <summary>
-        /// 登录
-        /// </summary>
-        /// <param name="request"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        public override Task<LoginReply> UserLogin(LoginRequest request, ServerCallContext context)
+        [HttpPost]
+        public async Task SaveData(front_user data)
         {
-            return Task.FromResult(new LoginReply
+            if (data.Id.IsNullOrEmpty())
             {
-                Message = "Hello " + request.Name
-            });
+                InitEntity(data);
+
+                await _front_userBus.AddDataAsync(data);
+            }
+            else
+            {
+                await _front_userBus.UpdateDataAsync(data);
+            }
         }
+
+        [HttpPost]
+        public async Task DeleteData(List<string> ids)
+        {
+            await _front_userBus.DeleteDataAsync(ids);
+        }
+
+        #endregion
     }
 }

@@ -9,7 +9,7 @@ service User {
   // ×¢²á
   rpc UserRegister (RegisterRequest) returns (RegisterReply);
   // µÇÂ¼
-  rpc UserLgin (LoginRequest) returns (LoginReply);
+  rpc UserLogin (LoginRequest) returns (LoginReply);
 
 }
 
@@ -17,11 +17,26 @@ service User {
 message RegisterRequest {
   string name = 1;
   string password = 2;
+  string confirmpassword=3;
+  string emailvalidatecode=4;
+  string createtime=5;
+  string realname=6;
+  int32  sex=7;
+  string Phone=8;
+  string IdentityCardNo=9;
+  bool IfVerifyCardNo=10;
+  string Birthday=11;
+  string Province=12;
+  string City=13;
+  bool IfPet=14;
+  string username = 15;
+
 }
 
 // The response message containing the greetings.
 message RegisterReply {
   string message = 1;
+  int32 code=2;
 }
 
 // The request message containing the user's name.
@@ -33,4 +48,5 @@ message LoginRequest {
 // The response message containing the greetings.
 message LoginReply {
   string message = 1;
+  int32 code=2;
 }

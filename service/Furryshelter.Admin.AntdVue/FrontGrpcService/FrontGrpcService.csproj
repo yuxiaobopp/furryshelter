@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\src\Coldairarrow.IBusiness\03.Coldairarrow.IBusiness.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Dockerfile">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
