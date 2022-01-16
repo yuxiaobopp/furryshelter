@@ -14,15 +14,112 @@ namespace Coldairarrow.Business.Front_Domain
         Task AddDataAsync(front_user data);
         Task UpdateDataAsync(front_user data);
         Task DeleteDataAsync(List<string> ids);
+        Task<front_user> FindDataByEmailAsync(string email);
+        Task<string> SubmitLoginAsync(front_user_loginDTO input);
+        Task ChangePwdAsync(front_user_changepwdDTO input);
     }
 
     /// <summary>
-    /// 注册请求参数
+    /// 注册、登录 返回结果code
+    /// </summary>
+    public enum FrontUserRegistResult
+    {
+        成功 = 1,
+        注册失败 = -1,
+        邮箱已经存在 = -2,
+        两次密码不一致 = -3,
+        参数错误 = -4,
+        邮箱不存在 = -5,
+        邮箱验证码错误 = -6,
+    }
+
+    /// <summary>
+    /// 邮箱验证实体
+    /// </summary>
+    public class front_user_emailDTO
+    {
+        /// <summary>
+        /// 邮箱
+        /// </summary>
+        [Required]
+        [Display(Name = "邮箱")]
+        [DataType(DataType.EmailAddress)]
+        public String Email { get; set; }
+        /// <summary>
+        /// 邮箱验证码
+        /// </summary>
+        [Required]
+        public String EmailCode { get; set; }
+    }
+
+    /// <summary>
+    /// 登录实体
+    /// </summary>
+    public class front_user_loginDTO
+    {
+        /// <summary>
+        /// 用户名 
+        /// </summary>
+        [Required]
+        [Display(Name = "用户名")]
+        [DataType(DataType.Text)]
+        public string UserName { get; set; }
+
+        /// <summary>
+        /// 密码
+        /// </summary>
+        [Required]
+        [Display(Name = "密码")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+      
+    }
+
+    /// <summary>
+    /// 修改密码
+    /// </summary>
+    public class front_user_changepwdDTO
+    {
+        /// <summary>
+        /// 用户名 
+        /// </summary>
+        [Required]
+        [Display(Name = "用户名")]
+        [DataType(DataType.Text)]
+        public string UserName { get; set; }
+
+        /// <summary>
+        /// 当前密码
+        /// </summary>
+        [Required]
+        [Display(Name = "密码")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        /// <summary>
+        /// 旧密码
+        /// </summary>
+        [Required]
+        [Display(Name = "密码")]
+        [DataType(DataType.Password)]
+        public string OldPwd { get; set; }
+
+        /// <summary>
+        /// 新密码
+        /// </summary>
+        [Required]
+        [Display(Name = "密码")]
+        [DataType(DataType.Password)]
+        public string NewPwd { get; set; }
+
+    }
+    /// <summary>
+    /// 用户信息接口请求参数
     /// </summary>
     public class front_userDTO
     {
         /// <summary>
-        /// 用户名 邮箱
+        /// 用户名 
         /// </summary>
         [Required]
         [Display(Name = "用户名")]
@@ -98,16 +195,36 @@ namespace Coldairarrow.Business.Front_Domain
         /// <summary>
         /// 省
         /// </summary>
+        [Required]
         public String Province { get; set; }
 
         /// <summary>
         /// 市
         /// </summary>
+        [Required]
         public String City { get; set; }
 
         /// <summary>
         /// 否已养宠物
         /// </summary>
         public Boolean IfPet { get; set; }
+
+        /// <summary>
+        /// 邮箱
+        /// </summary>
+        [Required]
+        [Display(Name = "邮箱")]
+        [DataType(DataType.EmailAddress)]
+        public String Email { get; set; }
+
+        /// <summary>
+        /// 邮箱验证码
+        /// </summary>
+        public String EmailCode { get; set; }
+
+        /// <summary>
+        /// 否已验证邮箱
+        /// </summary>
+        public Boolean IfVeryfyEmail { get; set; }
     }
 }

@@ -18,7 +18,7 @@
           <a-col :md="4" :sm="24">
             <a-form-item label="查询类别">
               <a-select allowClear v-model="queryParam.condition">
-                <a-select-option key="UserName">用户名邮箱形式</a-select-option>
+                <a-select-option key="UserName">用户名</a-select-option>
                 <a-select-option key="Password">密码</a-select-option>
                 <a-select-option key="RealName">姓名</a-select-option>
                 <a-select-option key="Phone">电话号码</a-select-option>
@@ -26,6 +26,8 @@
                 <a-select-option key="Birthday">出生日期</a-select-option>
                 <a-select-option key="Province">省</a-select-option>
                 <a-select-option key="City">市</a-select-option>
+                <a-select-option key="Email">邮箱</a-select-option>
+                <a-select-option key="EmailCode">邮箱验证码</a-select-option>
               </a-select>
             </a-form-item>
           </a-col>
@@ -71,7 +73,7 @@
 import EditForm from './EditForm'
 
 const columns = [
-  { title: '用户名邮箱形式', dataIndex: 'UserName', width: '10%' },
+  { title: '用户名', dataIndex: 'UserName', width: '10%' },
   { title: '密码', dataIndex: 'Password', width: '10%' },
   { title: '姓名', dataIndex: 'RealName', width: '10%' },
   { title: '性别(1为男，0为女)', dataIndex: 'Sex', width: '10%' },
@@ -82,6 +84,9 @@ const columns = [
   { title: '省', dataIndex: 'Province', width: '10%' },
   { title: '市', dataIndex: 'City', width: '10%' },
   { title: '否已养宠物', dataIndex: 'IfPet', width: '10%' },
+  { title: '邮箱', dataIndex: 'Email', width: '10%' },
+  { title: '邮箱验证码', dataIndex: 'EmailCode', width: '10%' },
+  { title: '否已验证邮箱', dataIndex: 'IfVeryfyEmail', width: '10%' },
   { title: '操作', dataIndex: 'action', scopedSlots: { customRender: 'action' } }
 ]
 

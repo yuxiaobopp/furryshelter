@@ -9,7 +9,7 @@
   >
     <a-spin :spinning="loading">
       <a-form-model ref="form" :model="entity" :rules="rules" v-bind="layout">
-        <a-form-model-item label="用户名邮箱形式" prop="UserName">
+        <a-form-model-item label="用户名" prop="UserName">
           <a-input v-model="entity.UserName" autocomplete="off" />
         </a-form-model-item>
         <a-form-model-item label="密码" prop="Password">
@@ -41,6 +41,15 @@
         </a-form-model-item>
         <a-form-model-item label="否已养宠物" prop="IfPet">
           <a-input v-model="entity.IfPet" autocomplete="off" />
+        </a-form-model-item>
+        <a-form-model-item label="邮箱" prop="Email">
+          <a-input v-model="entity.Email" autocomplete="off" />
+        </a-form-model-item>
+        <a-form-model-item label="邮箱验证码" prop="EmailCode">
+          <a-input v-model="entity.EmailCode" autocomplete="off" />
+        </a-form-model-item>
+        <a-form-model-item label="否已验证邮箱" prop="IfVeryfyEmail">
+          <a-input v-model="entity.IfVeryfyEmail" autocomplete="off" />
         </a-form-model-item>
       </a-form-model>
     </a-spin>

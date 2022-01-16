@@ -33,7 +33,7 @@ namespace Coldairarrow.Entity.Front_Domain
         public Boolean Deleted { get; set; }
 
         /// <summary>
-        /// 用户名邮箱形式
+        /// 用户名
         /// </summary>
         public String UserName { get; set; }
 
@@ -86,6 +86,21 @@ namespace Coldairarrow.Entity.Front_Domain
         /// 否已养宠物
         /// </summary>
         public Boolean IfPet { get; set; }
+
+        /// <summary>
+        /// 邮箱
+        /// </summary>
+        public String Email { get; set; }
+
+        /// <summary>
+        /// 邮箱验证码
+        /// </summary>
+        public String EmailCode { get; set; }
+
+        /// <summary>
+        /// 否已验证邮箱
+        /// </summary>
+        public Boolean IfVeryfyEmail { get; set; }
 
     }
 }
