@@ -2,6 +2,7 @@ import NavBar from './components/navbar'
 //import Display from './components/display'
 import LoginForm from './components/LoginForm';
 import React, { useState } from 'react';
+import './components/login.css'
 
 
 
@@ -36,7 +37,7 @@ function App() {
   }
 
     return (
-      <div className="Login">
+      <div className="App">
         {(user.email != "") ? (
           <div className="welcome">
             <h2> <span>{user.name}</span>, 欢迎来到furryshelter</h2>
