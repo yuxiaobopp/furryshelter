@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function App() {
   return (
     <div>
-      <h1>pages</h1>
+      <h1 style={{ color: "blue" }}>pages</h1>
       <nav
         style={{
           borderBottom: "solid 1px",
@@ -21,7 +21,7 @@ export default function App() {
             <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link to="/register">register</Link>
+            <Link to="/signup">Sign up</Link>
           </li>
           <li>
             <Link to="/contact">Contact Us</Link>

@@ -16,7 +16,7 @@ export default function Register() {
   const classes = useStyles();
   return (
     <div>
-      this is a register page
+      this is a Sign up page
       <form className={classes.root} noValidate autoComplete="off">
         <div>
           <TextField id="standard-required" label="Username" type="username" />

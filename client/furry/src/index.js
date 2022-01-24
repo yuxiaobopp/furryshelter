@@ -5,7 +5,7 @@ import NavBar from "./components/navbar";
 import LoginPage from "./components/LoginPage";
 import Contact from "./components/Contact";
 import Register from "./components/Register";
-
+import SignUp from "./components/SignUp";
 import Pet from "./components/Pet";
 
 const rootElement = document.getElementById("root");
@@ -16,7 +16,7 @@ render(
       <Route path="home" element={<NavBar />} />
       <Route path="about" element={<Pet />} />
       <Route path="login" element={<LoginPage />} />
-      <Route path="register" element={<Register />} />
+      <Route path="signup" element={<SignUp />} />
       <Route path="contact" element={<Contact />} />
     </Routes>
   </BrowserRouter>,
