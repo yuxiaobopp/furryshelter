@@ -24,6 +24,12 @@ export default function App() {
             <Link to="/signup">Sign up</Link>
           </li>
           <li>
+            <Link to="/verification">Verification</Link>
+          </li>
+          <li>
+            <Link to="/donation">Donation</Link>
+          </li>
+          <li>
             <Link to="/contact">Contact Us</Link>
           </li>
         </ul>

@@ -7,6 +7,8 @@ import Contact from "./components/Contact";
 import Register from "./components/Register";
 import SignUp from "./components/SignUp";
 import Pet from "./components/Pet";
+import Verification from "./components/Verificatioin";
+import Donation from "./components/Donation";
 
 const rootElement = document.getElementById("root");
 render(
@@ -17,6 +19,8 @@ render(
       <Route path="about" element={<Pet />} />
       <Route path="login" element={<LoginPage />} />
       <Route path="signup" element={<SignUp />} />
+      <Route path="verification" element={<Verification />} />
+      <Route path="donation" element={<Donation />} />
       <Route path="contact" element={<Contact />} />
     </Routes>
   </BrowserRouter>,
