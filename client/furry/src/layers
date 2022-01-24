@@ -1,0 +1,9 @@
+index.html
+    |__index.js 'root'
+    |__App.js
+        |__components
+            *homepage
+                navbar + container
+            *login form
+            *register
+            *verification
