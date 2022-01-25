@@ -6,7 +6,7 @@ import LoginPage from "./components/LoginPage";
 import Contact from "./components/Contact";
 import Register from "./components/Register";
 import SignUp from "./components/SignUp";
-import Pet from "./components/Pet";
+import PetList from "./components/PetList";
 import Verification from "./components/Verificatioin";
 import Donation from "./components/Donation";
 
@@ -16,7 +16,7 @@ render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="home" element={<NavBar />} />
-      <Route path="about" element={<Pet />} />
+      <Route path="about" element={<PetList />} />
       <Route path="login" element={<LoginPage />} />
       <Route path="signup" element={<SignUp />} />
       <Route path="verification" element={<Verification />} />

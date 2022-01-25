@@ -1,6 +1,7 @@
 import LoginForm from "./LoginForm";
 import React, { useState } from "react";
 import NavBar from "./navbar";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function LoginPage() {
   const adminUser = {
@@ -42,7 +43,9 @@ function LoginPage() {
             {" "}
             <span>{user.name}</span>, 欢迎来到furryshelter
           </h2>
-          <button onClick={Logout}>退出账号</button>
+          <Link to="/home">
+            <button onClick={Logout}>退出账号</button>
+          </Link>
         </div>
       ) : (
         <LoginForm Login={Login} error={error}></LoginForm>
