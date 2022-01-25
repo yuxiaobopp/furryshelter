@@ -1,12 +1,13 @@
 import NavBar from "../components/navbar";
-import Pet from "../components/homepage/Pet";
+import LoginPage from "../components/LoginPage";
+import pic2 from "../components/2.jpeg";
 
 export default function HomePage() {
   return (
     <div>
       <NavBar></NavBar>
-
-      <Pet></Pet>
+      <LoginPage />
+      <img src={pic2} alt="" />
     </div>
   );
 }

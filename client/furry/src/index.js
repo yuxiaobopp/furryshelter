@@ -9,13 +9,13 @@ import SignUp from "./components/SignUp";
 import PetList from "./components/PetList";
 import Verification from "./components/Verificatioin";
 import Donation from "./components/Donation";
-
+import HomePage from "./pages/HomePage";
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="home" element={<NavBar />} />
+      <Route path="home" element={<HomePage />} />
       <Route path="about" element={<PetList />} />
       <Route path="login" element={<LoginPage />} />
       <Route path="signup" element={<SignUp />} />
