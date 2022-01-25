@@ -1,4 +1,6 @@
 import "./Pet.css";
+import NavBar from "./navbar";
+import Grid from "@material-ui/core/Grid";
 function Pet() {
   const Info = () => {
     return (

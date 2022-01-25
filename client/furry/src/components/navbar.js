@@ -19,7 +19,7 @@ function NavBar() {
         </Link>
 
         <Link to="/contact">
-          <div className="navbar__item">关于我们</div>
+          <div className="navbar__item">联系我们</div>
         </Link>
 
         <div>

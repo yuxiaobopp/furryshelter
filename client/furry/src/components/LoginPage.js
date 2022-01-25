@@ -1,5 +1,6 @@
 import LoginForm from "./LoginForm";
 import React, { useState } from "react";
+import NavBar from "./navbar";
 
 function LoginPage() {
   const adminUser = {
