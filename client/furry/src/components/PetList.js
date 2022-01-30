@@ -10,42 +10,42 @@ import pic5 from "./5.jpeg";
 const pets = [
   {
     name: "Lily",
-    age: "2 year old",
+    age: "2 years old",
     img: pic1,
     story:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda necessitatibus quidem perspiciatis a nisi sequi eaque tenetur adipisci voluptatem error aliquid, iste molestias harum odio odit, fugiat, velit animi placeat.",
   },
   {
     name: "Jason",
-    age: "3 year old",
+    age: "3 years old",
     img: pic2,
     story:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda necessitatibus quidem perspiciatis a nisi sequi eaque tenetur adipisci voluptatem error aliquid, iste molestias harum odio odit, fugiat, velit animi placeat.",
   },
   {
     name: "Abby",
-    age: "1 year old",
+    age: "1 years old",
     img: pic3,
     story:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda necessitatibus quidem perspiciatis a nisi sequi eaque tenetur adipisci voluptatem error aliquid, iste molestias harum odio odit, fugiat, velit animi placeat.",
   },
   {
     name: "kate",
-    age: "2.5 year old",
+    age: "2.5 years old",
     img: pic4,
     story:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda necessitatibus quidem perspiciatis a nisi sequi eaque tenetur adipisci voluptatem error aliquid, iste molestias harum odio odit, fugiat, velit animi placeat.",
   },
   {
     name: "Yvan",
-    age: "3 year old",
+    age: "3 years old",
     img: pic5,
     story:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda necessitatibus quidem perspiciatis a nisi sequi eaque tenetur adipisci voluptatem error aliquid, iste molestias harum odio odit, fugiat, velit animi placeat.",
   },
   {
     name: "Bob",
-    age: "3 year old",
+    age: "3 years old",
     img: pic2,
     story:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda necessitatibus quidem perspiciatis a nisi sequi eaque tenetur adipisci voluptatem error aliquid, iste molestias harum odio odit, fugiat, velit animi placeat.",
