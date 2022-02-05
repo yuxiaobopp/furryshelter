@@ -11,8 +11,14 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-elastic-carousel": "^0.11.5",
+<<<<<<< HEAD
     "react-router-dom": "^6.2.1",
+=======
+
+
+>>>>>>> b4241a3625db974d9a8270c802e33e36a6188c70
     "react-scripts": "^5.0.0",
+
     "styled-components": "^5.3.0",
     "web-vitals": "^1.0.1",
     "yarn": "^1.22.10"

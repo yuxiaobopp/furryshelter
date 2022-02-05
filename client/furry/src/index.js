@@ -4,7 +4,7 @@ import App from "./App";
 import NavBar from "./components/navbar";
 import LoginPage from "./components/LoginPage";
 import Contact from "./components/Contact";
-import Register from "./components/Register";
+
 import SignUp from "./components/SignUp";
 import PetList from "./components/PetList";
 import Verification from "./components/Verificatioin";
