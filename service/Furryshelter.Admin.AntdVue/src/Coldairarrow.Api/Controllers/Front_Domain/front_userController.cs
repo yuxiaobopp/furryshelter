@@ -84,7 +84,7 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
                 return Task.FromResult(new
                 {
                     Code = (int)FrontUserRegistResult.参数错误,
-                    Message = FrontUserRegistResult.参数错误
+                    Message = FrontUserRegistResult.参数错误.ToString()
                 });
             }
 
@@ -95,18 +95,18 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
                 return Task.FromResult(new
                 {
                     Code = (int)FrontUserRegistResult.参数错误,
-                    Message = FrontUserRegistResult.参数错误
+                    Message = FrontUserRegistResult.参数错误.ToString()
                 });
             }
 
-            if (request.Password!.Equals(request.ConfirmPassword))
-            {
-                return Task.FromResult(new
-                {
-                    Code = (int)FrontUserRegistResult.两次密码不一致,
-                    Message = FrontUserRegistResult.两次密码不一致
-                });
-            }
+            //if (!request.Password.Equals(request.ConfirmPassword))
+            //{
+            //    return Task.FromResult(new
+            //    {
+            //        Code = (int)FrontUserRegistResult.两次密码不一致,
+            //        Message = FrontUserRegistResult.两次密码不一致.ToString()
+            //    });
+            //}
 
             if (string.IsNullOrWhiteSpace(request.UserName) ||
                 string.IsNullOrWhiteSpace(request.Password) ||
@@ -117,46 +117,31 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
                 return Task.FromResult(new
                 {
                     Code = (int)FrontUserRegistResult.参数错误,
-                    Message = FrontUserRegistResult.参数错误
+                    Message = FrontUserRegistResult.参数错误.ToString()
                 });
             }
 
-            var emailEntry = _front_userBus.FindDataByEmailAsync(request.Email);
+            var emailEntry = await _front_userBus.FindDataByEmailAsync(request.Email);
             if (emailEntry != null)
             {
                 return Task.FromResult(new
                 {
                     Code = (int)FrontUserRegistResult.邮箱已经存在,
-                    Message = FrontUserRegistResult.邮箱已经存在
+                    Message = FrontUserRegistResult.邮箱已经存在.ToString()
                 });
             }
 
             _logger.LogInformation("注册", JsonConvert.SerializeObject(request));
-
-            await _front_userBus.AddDataAsync(new front_user
-            {
-                Sex = request.Sex,
-                Birthday = request.Birthday,
-                City = request.City,
-                CreateTime = DateTime.Now,
-                IdentityCardNo = request.IdentityCardNo,
-                IfPet = request.IfPet,
-                Deleted = false,
-                IfVerifyCardNo = request.IfVerifyCardNo,
-                Password = request.Password,
-                Phone = request.Phone,
-                Province = request.Province,
-                RealName = request.RealName,
-                UserName = request.UserName,
-                Email = request.Email,
-                EmailCode = new VerifyCodeFactory().CreateValidateCode(5),//生成邮件验证码 验证过的用户才可以登录
-                IfVeryfyEmail = false
-            });
+            
+            InitEntity(request);
+            request.EmailCode = new VerifyCodeFactory().CreateValidateCode(5);//生成邮件验证码 验证过的用户才可以登录
+            var ret= await _front_userBus.AddDataAsync(request);
 
             return Task.FromResult(new
             {
                 Code = (int)FrontUserRegistResult.成功,
-                Message = FrontUserRegistResult.成功
+                Date= request.EmailCode,
+                Message = FrontUserRegistResult.成功.ToString()
             });
         }
 
@@ -174,7 +159,7 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
                 return Task.FromResult(new
                 {
                     Code = (int)FrontUserRegistResult.参数错误,
-                    Message = FrontUserRegistResult.参数错误
+                    Message = FrontUserRegistResult.参数错误.ToString()
                 });
             }
 
@@ -183,7 +168,7 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
                 return Task.FromResult(new
                 {
                     Code = (int)FrontUserRegistResult.参数错误,
-                    Message = FrontUserRegistResult.参数错误
+                    Message = FrontUserRegistResult.参数错误.ToString()
                 });
             }
 
@@ -193,7 +178,7 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
                 return Task.FromResult(new
                 {
                     Code = (int)FrontUserRegistResult.邮箱不存在,
-                    Message = FrontUserRegistResult.邮箱不存在
+                    Message = FrontUserRegistResult.邮箱不存在.ToString()
                 });
             }
 
@@ -202,7 +187,7 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
             return Task.FromResult(new
             {
                 Code = (int)FrontUserRegistResult.成功,
-                Message = FrontUserRegistResult.成功
+                Message = FrontUserRegistResult.成功.ToString()
             });
         }
 
@@ -220,7 +205,7 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
                 return Task.FromResult(new
                 {
                     Code = (int)FrontUserRegistResult.参数错误,
-                    Message = FrontUserRegistResult.参数错误
+                    Message = FrontUserRegistResult.参数错误.ToString()
                 });
             }
 
@@ -229,7 +214,7 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
                 return Task.FromResult(new
                 {
                     Code = (int)FrontUserRegistResult.参数错误,
-                    Message = FrontUserRegistResult.参数错误
+                    Message = FrontUserRegistResult.参数错误.ToString()
                 });
             }
 
@@ -239,16 +224,16 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
                 return Task.FromResult(new
                 {
                     Code = (int)FrontUserRegistResult.邮箱不存在,
-                    Message = FrontUserRegistResult.邮箱不存在
+                    Message = FrontUserRegistResult.邮箱不存在.ToString()
                 });
             }
 
-            if (emailEntry.EmailCode!.Equals(request.EmailCode))
+            if (!emailEntry.EmailCode.Equals(request.EmailCode))
             {
                 return Task.FromResult(new
                 {
                     Code = (int)FrontUserRegistResult.邮箱验证码错误,
-                    Message = FrontUserRegistResult.邮箱验证码错误
+                    Message = FrontUserRegistResult.邮箱验证码错误.ToString()
                 });
             }
 
@@ -258,7 +243,7 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
             return Task.FromResult(new
             {
                 Code = (int)FrontUserRegistResult.成功,
-                Message = FrontUserRegistResult.成功
+                Message = FrontUserRegistResult.成功.ToString()
             });
         }
 
@@ -276,7 +261,7 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
                 return Task.FromResult(new
                 {
                     Code = (int)FrontUserRegistResult.参数错误,
-                    Message = FrontUserRegistResult.参数错误
+                    Message = FrontUserRegistResult.参数错误.ToString()
                 });
             }
 
@@ -285,7 +270,7 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
             return Task.FromResult(new
             {
                 Code = (int)FrontUserRegistResult.成功,
-                Message = FrontUserRegistResult.成功
+                Message = FrontUserRegistResult.成功.ToString()
             });
         }
 

@@ -11,7 +11,8 @@ namespace Coldairarrow.Business.Front_Domain
     {
         Task<PageResult<front_user>> GetDataListAsync(PageInput<ConditionDTO> input);
         Task<front_user> GetTheDataAsync(string id);
-        Task AddDataAsync(front_user data);
+        Task<int> AddDataAsync(front_user data);
+        Task<int> AddDataAsync(front_userDTO data);
         Task UpdateDataAsync(front_user data);
         Task DeleteDataAsync(List<string> ids);
         Task<front_user> FindDataByEmailAsync(string email);
@@ -89,14 +90,6 @@ namespace Coldairarrow.Business.Front_Domain
         public string UserName { get; set; }
 
         /// <summary>
-        /// 当前密码
-        /// </summary>
-        [Required]
-        [Display(Name = "密码")]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
-
-        /// <summary>
         /// 旧密码
         /// </summary>
         [Required]
@@ -108,16 +101,31 @@ namespace Coldairarrow.Business.Front_Domain
         /// 新密码
         /// </summary>
         [Required]
-        [Display(Name = "密码")]
+        [Display(Name = "新密码")]
         [DataType(DataType.Password)]
         public string NewPwd { get; set; }
+
+        /// <summary>
+        /// 确认
+        /// </summary>
+        [Required]
+        [Display(Name = "确认密码")]
+        [DataType(DataType.Password)]
+        [Compare("NewPwd",
+            ErrorMessage = "密码与确认密码不一致，请重新输入.")]
+        public string ConfirmPwd { get; set; }
 
     }
     /// <summary>
     /// 用户信息接口请求参数
     /// </summary>
+    [Map(typeof(front_user))]
     public class front_userDTO
     {
+        /// <summary>
+        /// 主键，提交时是Null的话，需要InitEntity方法初始化
+        /// </summary>
+        public String Id { get; set; } = string.Empty;
         /// <summary>
         /// 用户名 
         /// </summary>
@@ -134,23 +142,19 @@ namespace Coldairarrow.Business.Front_Domain
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        /// <summary>
-        /// 确认密码
-        /// </summary>
-        [DataType(DataType.Password)]
-        [Display(Name = "确认密码")]
-        [Compare("Password",
-            ErrorMessage = "密码与确认密码不一致，请重新输入.")]
-        public string ConfirmPassword { get; set; }
+        ///// <summary>
+        ///// 确认密码
+        ///// </summary>
+        //[Display(Name = "确认密码")]
+        //[Compare("Password",
+        //    ErrorMessage = "密码与确认密码不一致，请重新输入.")]
+        //public string ConfirmPassword { get; set; }
 
-        /// <summary>
-        /// 邮箱验证码
-        /// </summary>
-        public string EmailValidateCode { get; set; }
         /// <summary>
         /// 创建时间
         /// </summary>
-        public DateTime CreateTime { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime CreateTime { get; set; } = DateTime.Now;
 
         /// <summary>
         /// 创建人Id
@@ -160,11 +164,12 @@ namespace Coldairarrow.Business.Front_Domain
         /// <summary>
         /// 否已删除
         /// </summary>
-        public Boolean Deleted { get; set; }
+        public Boolean Deleted { get; set; } = false;
 
         /// <summary>
         /// 姓名
         /// </summary>
+        [Required]
         public String RealName { get; set; }
 
         /// <summary>
@@ -190,24 +195,23 @@ namespace Coldairarrow.Business.Front_Domain
         /// <summary>
         /// 出生日期
         /// </summary>
-        public String Birthday { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime Birthday { get; set; }
 
         /// <summary>
         /// 省
         /// </summary>
-        [Required]
         public String Province { get; set; }
 
         /// <summary>
         /// 市
         /// </summary>
-        [Required]
         public String City { get; set; }
 
         /// <summary>
         /// 否已养宠物
         /// </summary>
-        public Boolean IfPet { get; set; }
+        public Boolean IfPet { get; set; } = false;
 
         /// <summary>
         /// 邮箱
@@ -225,6 +229,6 @@ namespace Coldairarrow.Business.Front_Domain
         /// <summary>
         /// 否已验证邮箱
         /// </summary>
-        public Boolean IfVeryfyEmail { get; set; }
+        public Boolean IfVeryfyEmail { get; set; } = false;
     }
 }

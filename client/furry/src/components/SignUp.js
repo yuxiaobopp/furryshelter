@@ -46,6 +46,29 @@ export default function SignUp() {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
+ 
+  const register=(event) =>{
+    fetch('http://localhost:5000​/Front_Domain​/front_user​/UserRegister', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        UserName:this.state.email,
+        Password: this.state.password,
+        Email: this.state.email,
+        RealName: this.state.lastName+this.state.firstName,
+        IfPet: this.state.female
+      })
+    }).then((Response) => Response.json())
+      .then((Result) => {
+        if (Result.Status == 'Success')
+                this.props.history.push("/Dashboard");
+        else
+          alert('Sorrrrrry !!!! Un-authenticated User !!!!!')
+      })
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -114,11 +137,11 @@ export default function SignUp() {
                   onChange={handleChange}
                 >
                   <FormControlLabel
-                    value="yes"
+                    value="1"
                     control={<Radio />}
                     label="是"
                   />
-                  <FormControlLabel value="no" control={<Radio />} label="否" />
+                  <FormControlLabel value="0" control={<Radio />} label="否" />
                 </RadioGroup>
               </FormControl>
             </Grid>
@@ -135,6 +158,7 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={register}
           >
             确定注册
           </Button>

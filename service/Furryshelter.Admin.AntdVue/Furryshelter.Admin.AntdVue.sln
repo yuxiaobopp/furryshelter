@@ -13,10 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05.Coldairarrow.Api", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03.Coldairarrow.IBusiness", "src\Coldairarrow.IBusiness\03.Coldairarrow.IBusiness.csproj", "{4422EF5A-9E20-450D-B0BD-643DED2B9219}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontGrpcService", "FrontGrpcService\FrontGrpcService.csproj", "{0B53BFC6-83EB-4BD9-AB66-EE3796466A6A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "grpc", "grpc", "{CDA78142-BF8D-41FE-A760-4CDD0B6DA92E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,16 +39,9 @@ Global
 		{4422EF5A-9E20-450D-B0BD-643DED2B9219}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4422EF5A-9E20-450D-B0BD-643DED2B9219}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4422EF5A-9E20-450D-B0BD-643DED2B9219}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B53BFC6-83EB-4BD9-AB66-EE3796466A6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B53BFC6-83EB-4BD9-AB66-EE3796466A6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B53BFC6-83EB-4BD9-AB66-EE3796466A6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B53BFC6-83EB-4BD9-AB66-EE3796466A6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{0B53BFC6-83EB-4BD9-AB66-EE3796466A6A} = {CDA78142-BF8D-41FE-A760-4CDD0B6DA92E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7557970B-2675-4EDD-B2EF-EA28744BC050}

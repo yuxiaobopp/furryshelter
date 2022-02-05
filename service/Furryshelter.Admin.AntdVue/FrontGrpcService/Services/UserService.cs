@@ -50,7 +50,7 @@ namespace FrontGrpcService.Services
                 });
             }
 
-            if (request.Password!.Equals(request.Confirmpassword))
+            if (!request.Password.Equals(request.Confirmpassword))
             {
                 return Task.FromResult(new RegisterReply
                 {

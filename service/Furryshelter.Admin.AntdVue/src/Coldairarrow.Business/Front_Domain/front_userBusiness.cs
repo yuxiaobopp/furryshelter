@@ -54,7 +54,7 @@ namespace Coldairarrow.Business.Front_Domain
             if (theUser.Password != input.OldPwd?.ToMD5String())
                 throw new BusException("原密码错误!");
 
-            theUser.Password = input.NewPwd.ToMD5String();
+            theUser.Password = input.ConfirmPwd.ToMD5String();
             await UpdateAsync(_mapper.Map<front_user>(theUser));
 
             //更新缓存
@@ -83,11 +83,14 @@ namespace Coldairarrow.Business.Front_Domain
             return await GetEntityAsync(id);
         }
 
-        public async Task AddDataAsync(front_user data)
+        public async Task<int> AddDataAsync(front_user data)
         {
-            await InsertAsync(data);
+            return await InsertAsync(data);
         }
-
+        public async Task<int> AddDataAsync(front_userDTO data)
+        {
+            return await InsertAsync(_mapper.Map<front_user>(data));
+        }
         public async Task UpdateDataAsync(front_user data)
         {
             await UpdateAsync(data);
@@ -113,6 +116,8 @@ namespace Coldairarrow.Business.Front_Domain
 
             return null;
         }
+
+
 
         #endregion
 

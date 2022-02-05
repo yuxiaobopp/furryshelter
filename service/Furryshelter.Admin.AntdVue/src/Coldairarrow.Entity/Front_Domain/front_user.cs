@@ -70,7 +70,7 @@ namespace Coldairarrow.Entity.Front_Domain
         /// <summary>
         /// 出生日期
         /// </summary>
-        public String Birthday { get; set; }
+        public DateTime Birthday { get; set; }
 
         /// <summary>
         /// 省
