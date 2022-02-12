@@ -16,8 +16,8 @@ function LoginPage() {
   const Login = (details) => {
     console.log(details);
     if (
-      details.email == adminUser.email &&
-      details.password == adminUser.password
+      details.email === adminUser.email &&
+      details.password === adminUser.password
     ) {
       console.log("Login succeed!");
       setUser({
