@@ -9,7 +9,7 @@ export default function App() {
     <div>
       {/* <Hero></Hero>
       <PetList></PetList> */}
-      {/* <LoginPage></LoginPage> */}
+      <LoginPage></LoginPage>
       <SignUp></SignUp>
     </div>
   );

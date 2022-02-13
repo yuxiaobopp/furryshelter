@@ -3,8 +3,6 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 import Checkbox from "@material-ui/core/Checkbox";
 
 import Grid from "@material-ui/core/Grid";
@@ -18,7 +16,6 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
-import { lightBlue } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -112,8 +109,7 @@ export default function SignUp() {
                 fullWidth
                 id="cellnumber"
                 label="手机号码"
-                name="email"
-                autoComplete="cellnumber"
+                name="cellnumber"
               />
             </Grid>
             <Grid item xs={12}>
