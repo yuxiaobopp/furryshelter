@@ -5,7 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUp from "./components/SignUp";
 import Footer from "./components/Footer";
 import NavBar from "./components/navbar";
-
+import Contact from "./components/Contact";
 export default function App() {
   return (
     <div>
@@ -16,6 +16,7 @@ export default function App() {
 
         <LoginPage></LoginPage>
         <SignUp></SignUp>
+        <Contact></Contact>
         <Footer></Footer>
       </section>
     </div>
