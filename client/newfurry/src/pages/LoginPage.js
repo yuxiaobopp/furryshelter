@@ -1,6 +1,6 @@
-import LoginForm from "./LoginForm";
+import LoginForm from "../components/LoginForm";
 import React, { useState } from "react";
-import NavBar from "./navbar";
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function LoginPage() {
@@ -39,13 +39,7 @@ function LoginPage() {
     <div className="App">
       {user.email != "" ? (
         <div className="welcome">
-          <h2>
-            {" "}
-            <span>{user.name}</span>, 欢迎来到furryshelter
-          </h2>
-          <Link to="/home">
-            <button onClick={Logout}>退出账号</button>
-          </Link>
+          <h2> 欢迎来到furryshelter</h2>
         </div>
       ) : (
         <LoginForm Login={Login} error={error}></LoginForm>

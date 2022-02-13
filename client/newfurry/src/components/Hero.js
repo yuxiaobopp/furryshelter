@@ -12,12 +12,9 @@ const Hero = () => {
           “毛孩子”
         </h1>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at
-          sed omnis corporis doloremque possimus velit! Repudiandae nisi odit,
-          aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis
-          alias?
+          世界之大，总有一个毛孩子适合你， 陪着你一起成长，给你它全部的爱。。。
         </p>
-        <a href="./PetList.js" className="btn hero-btn">
+        <a href="#" className="btn hero-btn">
           {" "}
           为毛孩子助力🐶
         </a>
