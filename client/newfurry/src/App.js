@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import PetList from "./components/PetList";
 import LoginPage from "./pages/LoginPage";
 import SignUp from "./components/SignUp";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
 
         <LoginPage></LoginPage>
         <SignUp></SignUp>
+        <Footer></Footer>
       </section>
     </div>
   );
