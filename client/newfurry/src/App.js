@@ -7,10 +7,13 @@ import SignUp from "./components/SignUp";
 export default function App() {
   return (
     <div>
-      {/* <Hero></Hero>
-      <PetList></PetList> */}
-      <LoginPage></LoginPage>
-      <SignUp></SignUp>
+      <section>
+        <Hero></Hero>
+        {/* <PetList></PetList> */}
+
+        <LoginPage></LoginPage>
+        <SignUp></SignUp>
+      </section>
     </div>
   );
 }
