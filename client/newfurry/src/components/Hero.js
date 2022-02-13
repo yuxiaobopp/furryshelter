@@ -17,14 +17,14 @@ const Hero = () => {
           aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis
           alias?
         </p>
-        <a href="#" className="btn hero-btn">
+        <a href="./PetList.js" className="btn hero-btn">
           {" "}
           为毛孩子助力🐶
         </a>
       </article>
       <article className="img-container">
-        <img src={heroBcg} alt="nice table" className="main-img" />
-        <img src={heroBcg2} alt="person working" className="accent-img" />
+        <img src={heroBcg} alt="whitedog" className="main-img" />
+        <img src={heroBcg2} alt="two dogs" className="accent-img" />
       </article>
     </Wrapper>
   );

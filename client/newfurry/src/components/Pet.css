@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #c7d6e2;
+  color: #222;
+}
+
+.petlist {
+  width: 15vw;
+  height: 35vh;
+  margin: 15rem;
+  display: grid;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .petlist {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+  }
+}
+
+.pet {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+}
+
+.pet h1 {
+  margin-top: 0.5rem;
+}
+.pet h4 {
+  color: #617d98;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
