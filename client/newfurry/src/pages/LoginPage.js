@@ -2,6 +2,7 @@ import LoginForm from "../components/LoginForm";
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Signup from "../components";
 
 async function loginUser(credentials) {
   return fetch("http://furryshelter/Base_Manage/Home/SubmitLogin", {

@@ -7,7 +7,10 @@ function NavBar() {
   return (
     <div>
       <header className="navbar">
-        <div className="navbar__title navbar__item">Furry Shelter</div>
+        <div className="navbar__title navbar__item">
+          {" "}
+          <Link to="/">Furry Shelter</Link>
+        </div>
         {/* <Link to="/home">
           <div className="navbar__item">首页</div>
         </Link>

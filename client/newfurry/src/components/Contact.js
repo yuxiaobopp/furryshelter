@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 const Contact = () => {
   return (
     <Wrapper>
@@ -14,7 +15,7 @@ const Contact = () => {
           <form className="contact-form">
             <input type="email" className="form-input" placeholder="邮箱地址" />
             <button type="submit" className="submit-btn">
-              订阅关注 +
+              <Link to="/subscribe"> 订阅关注 +</Link>
             </button>
           </form>
         </div>

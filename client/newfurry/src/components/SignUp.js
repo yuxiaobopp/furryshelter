@@ -16,6 +16,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -168,7 +169,7 @@ export default function SignUp() {
           <Grid container justifyContent="flex-end">
             <Grid item>
               {/* <Link to="/login">已有账号？ 登陆</Link> */}
-              <a href="#">已有账号？ 登陆</a>
+              <Link to="/login">已有账号？ 登陆</Link>
             </Grid>
           </Grid>
         </form>

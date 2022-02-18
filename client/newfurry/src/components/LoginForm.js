@@ -10,6 +10,7 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -86,11 +87,13 @@ function LoginForm({ Login, error }) {
               />{" "}
             </Grid>
           </Grid>
-          <Grid item xs={12}>
-            <FormControlLabel
-              control={<Checkbox value="allow" />}
-              label="记住密码"
-            />
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <FormControlLabel
+                control={<Checkbox value="allow" />}
+                label="记住密码"
+              />
+            </Grid>
           </Grid>
           <Button
             type="submit"
@@ -100,6 +103,10 @@ function LoginForm({ Login, error }) {
           >
             确定注册
           </Button>
+          <Grid item xs={12} sm={6}>
+            <Link to="/signup">已有账户/</Link>
+            <Link to="/forgetpassword"> 忘记密码</Link>
+          </Grid>
         </form>
       </div>
     </Container>

@@ -6,6 +6,8 @@ import LoginForm from "./LoginForm";
 import PetList from "./PetList";
 import Signup from "./SignUp";
 import Navbar from "./navbar";
+import ForgetPassword from "./ForgetPassword";
+import Subscription from "./Subscription";
 
 export {
   Contact,
@@ -16,4 +18,6 @@ export {
   PetList,
   Signup,
   Navbar,
+  ForgetPassword,
+  Subscription,
 };
