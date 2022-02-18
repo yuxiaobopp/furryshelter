@@ -34,7 +34,7 @@ namespace Coldairarrow.Business.Front_Domain
         {
             input.Password = input.Password.ToMD5String();
             var theUser = await GetIQueryable()
-                .Where(x => x.UserName == input.UserName && x.Password == input.Password)
+                .Where(x => x.Email == input.Email && x.Password == input.Password)
                 .FirstOrDefaultAsync();
 
             if (theUser.IsNullOrEmpty())
@@ -102,11 +102,11 @@ namespace Coldairarrow.Business.Front_Domain
         }
 
         /// <summary>
-        /// 判断邮箱注册过
+        /// 判断邮箱验证过
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        public async Task<front_user> FindDataByEmailAsync(string email)
+        public async Task<front_user> ExitsDataByEmailAsync(string email)
         {
             var res = await GetIQueryable().Where(t => t.Email == email && t.IfVeryfyEmail).ToListAsync();
             if (res.Any())
@@ -117,6 +117,22 @@ namespace Coldairarrow.Business.Front_Domain
             return null;
         }
 
+        /// <summary>
+        /// 发送验证码时，判断没有经过验证的邮箱是否存在，不存在无法发送验证码
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public async Task<front_user> FindDataByEmailAsync(string email)
+        {
+            var res = await GetIQueryable().Where(t => t.Email == email && !t.IfVeryfyEmail).ToListAsync();
+            if (res.Any())
+            {
+                return res.FirstOrDefault();
+            }
+
+            return null;
+        }
+        
 
 
         #endregion

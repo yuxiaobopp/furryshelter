@@ -121,7 +121,7 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
                 });
             }
 
-            var emailEntry = await _front_userBus.FindDataByEmailAsync(request.Email);
+            var emailEntry = await _front_userBus.ExitsDataByEmailAsync(request.Email);
             if (emailEntry != null)
             {
                 return Task.FromResult(new
@@ -135,6 +135,7 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
             
             InitEntity(request);
             request.EmailCode = new VerifyCodeFactory().CreateValidateCode(5);//生成邮件验证码 验证过的用户才可以登录
+            request.Password= request.Password.ToMD5String();
             var ret= await _front_userBus.AddDataAsync(request);
 
             return Task.FromResult(new
@@ -255,8 +256,8 @@ namespace Coldairarrow.Api.Controllers.Front_Domain
         [HttpPost]
         public async Task<dynamic> UserLogin(front_user_loginDTO request)
         {
-            ModelState.ClearValidationState(nameof(front_userDTO));
-            if (!TryValidateModel(request, nameof(front_userDTO)))
+            ModelState.ClearValidationState(nameof(front_user_loginDTO));
+            if (!TryValidateModel(request, nameof(front_user_loginDTO)))
             {
                 return Task.FromResult(new
                 {

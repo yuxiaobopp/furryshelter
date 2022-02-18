@@ -15,7 +15,9 @@ namespace Coldairarrow.Business.Front_Domain
         Task<int> AddDataAsync(front_userDTO data);
         Task UpdateDataAsync(front_user data);
         Task DeleteDataAsync(List<string> ids);
+        Task<front_user> ExitsDataByEmailAsync(string email);
         Task<front_user> FindDataByEmailAsync(string email);
+
         Task<string> SubmitLoginAsync(front_user_loginDTO input);
         Task ChangePwdAsync(front_user_changepwdDTO input);
     }
@@ -62,9 +64,9 @@ namespace Coldairarrow.Business.Front_Domain
         /// 用户名 
         /// </summary>
         [Required]
-        [Display(Name = "用户名")]
-        [DataType(DataType.Text)]
-        public string UserName { get; set; }
+        [Display(Name = "邮箱")]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
 
         /// <summary>
         /// 密码
