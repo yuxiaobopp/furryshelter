@@ -104,7 +104,7 @@ function LoginForm({ Login, error }) {
             确定注册
           </Button>
           <Grid item xs={12} sm={6}>
-            <Link to="/signup">已有账户/</Link>
+            <Link to="/signup">新用户注册/</Link>
             <Link to="/forgetpassword"> 忘记密码</Link>
           </Grid>
         </form>
