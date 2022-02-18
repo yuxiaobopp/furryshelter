@@ -14,10 +14,10 @@ const Hero = () => {
         <p>
           世界之大，总有一个毛孩子适合你， 陪着你一起成长，给你它全部的爱。。。
         </p>
-        <a href="#" className="btn hero-btn">
-          {" "}
+
+        <Link className="btn hero-btn" to="/adoption">
           为毛孩子助力🐶
-        </a>
+        </Link>
       </article>
       <article className="img-container">
         <img src={heroBcg} alt="whitedog" className="main-img" />

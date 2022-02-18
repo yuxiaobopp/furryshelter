@@ -5,7 +5,6 @@ const HomePage = () => {
   return (
     <div>
       <Hero></Hero>
-      <LoginForm></LoginForm>
     </div>
   );
 };

@@ -5,7 +5,7 @@ const Adoption = () => {
   return (
     <main>
       Adoption
-      <PetList></PetList>
+      {/* <PetList></PetList> */}
     </main>
   );
 };
