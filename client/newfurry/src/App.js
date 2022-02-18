@@ -1,24 +1,23 @@
 import React from "react";
-import Hero from "./components/Hero";
-import PetList from "./components/PetList";
-import LoginPage from "./pages/LoginPage";
-import SignUp from "./components/SignUp";
-import Footer from "./components/Footer";
-import NavBar from "./components/navbar";
-import Contact from "./components/Contact";
+
+import { Navbar, Footer, Contact } from "./components";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { HomePage, Error, About, LoginPage, Adoption } from "./pages";
 export default function App() {
   return (
     <div>
-      <section>
-        <NavBar></NavBar>
-        <Hero></Hero>
-        {/* <PetList></PetList> */}
-
-        <LoginPage></LoginPage>
-        <SignUp></SignUp>
+      <Router>
+        <Navbar></Navbar>
+        <Routes>
+          <Route exact path="/" element={<HomePage></HomePage>}></Route>
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/about" element={<About></About>}></Route>
+          <Route path="/adoption" element={<Adoption></Adoption>}></Route>
+        </Routes>
         <Contact></Contact>
-        <Footer></Footer>
-      </section>
+        <Footer />
+      </Router>
     </div>
   );
 }

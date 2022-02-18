@@ -3,7 +3,17 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-function LoginPage() {
+async function loginUser(credentials) {
+  return fetch("http://furryshelter/Base_Manage/Home/SubmitLogin", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  }).then((data) => data.json());
+}
+
+function LoginPage(setToken) {
   const adminUser = {
     email: "admin@admin.com",
     password: "admin1234",

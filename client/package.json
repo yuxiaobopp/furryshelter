@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "react-router-dom": "^6.2.1"
+    "force": "^0.0.3",
+    "react-router-dom": "^6.2.1",
+    "uuid": "^7.0.3",
+    "yarn": "^1.22.17"
   }
 }

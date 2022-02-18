@@ -25,16 +25,21 @@ function NavBar() {
         {/* <div>
           <Link to="/signup"></Link>
         </div> */}
-        <a href="#" className="navbar__item">
-          主页
-        </a>
-        <a href="#" className="navbar__item">
-          社区
-        </a>
-        <a href="#" className="navbar__item">
-          爱心助力
-        </a>
-        <Avatar></Avatar>
+        <Link to="/">
+          <div className="navbar__item">首页</div>
+        </Link>
+
+        <Link to="/about">
+          <div className="navbar__item">毛茸茸社区</div>
+        </Link>
+        <Link to="/adoption">
+          <div className="navbar__item">领养毛孩子</div>
+        </Link>
+        <Link to="/login">
+          <div className="navbar__item">
+            <Avatar></Avatar>
+          </div>
+        </Link>
       </header>
     </div>
   );

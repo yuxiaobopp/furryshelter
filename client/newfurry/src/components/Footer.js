@@ -21,6 +21,10 @@ const Container = styled.footer`
   /* background: var(--clr-black); */
   background: lightblue;
   text-align: center;
+
+  bottom: 0;
+  width: 100%;
+
   span {
     color: #659dbd;
   }

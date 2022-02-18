@@ -6,6 +6,7 @@ import pic2 from "../assets/2.jpeg";
 import pic3 from "../assets/3.jpeg";
 import pic4 from "../assets/4.jpeg";
 import pic5 from "../assets/5.jpeg";
+import { Container } from "@material-ui/core";
 
 const pets = [
   {
@@ -72,13 +73,13 @@ const newnames = names.map((name) => {
 function PetList() {
   return (
     <div>
-      <section className="petlist">
+      <Container className="petlist">
         {pets.map((pet) => {
           const { img, name, age, story } = pet;
           // return <Pet img={img} name={name} age={age} story={story}></Pet>;
           return <Pet pet={pet}></Pet>;
         })}
-      </section>
+      </Container>
     </div>
   );
 }
