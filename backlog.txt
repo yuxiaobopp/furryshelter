@@ -38,21 +38,22 @@ docker run -p 3306:3306 --name mysql \
 -e MYSQL_ROOT_PASSWORD=fUrryshelter_db68_$#@justd \
 -d mysql:latest
  
-
+docker run -itd --name mysql-m -p 3306:3306 -v /usr/local/mysql/data:/var/lib/mysql/ -e MYSQL_ROOT_PASSWORD=123456 mysql:latest
 docker run -itd --name mysql-m -p 3306:3306 -v /usr/local/mysql/data:/var/lib/mysql/ -e MYSQL_ROOT_PASSWORD=fUrryshelter_db68_$#@justd mysql:latest
 
+进入数据库容器
 apt-get update
 apt-get install vim
 
 vim /etc/mysql/my.cnf
 最后一行加:skip-grant-tables
 
-注释掉skip-grant-tables
-
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'fUrryshelter_db68_$#@justd';
 
 flush privileges;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'fUrryshelter_db68_$#@justd';
 
+
+注释掉skip-grant-tables
 
 create database FurryshelterAdmin;
 

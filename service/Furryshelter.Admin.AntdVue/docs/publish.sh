@@ -18,6 +18,8 @@ docker build -t furryadmin .
 docker run --name netcore-furryadmin -d -p 50880:5000 --net mynet --ip=172.25.0.3 -v /etc/localtime:/etc/localtime furryadmin -v ./appsettings.json:/app/appsettings.json
 
 
+
+
 docker build -t furryuser .
 
 docker run --name netcore-furryuser -d -p 50881:5000 --net mynet --ip=172.25.1.3 -v /etc/localtime:/etc/localtime furryuser -v ./appsettings.json:/app/appsettings.json
@@ -32,6 +34,21 @@ netcore-furryadmin容器内是可以ping mysql-m的ip的
 修改mysql用户网络权限才可以访问数据库
 update user set host ='%' where user='root';
 flush privileges;
+如果报下面的错：
+ Authentication method 'caching_sha2_password' failed. Either use a secure connection, specify the server's RSA public key with ServerRSAPublicKeyFile, or set AllowPublicKeyRetrieval=True.
+修改网站配置文件 appsettings.json的数据库连接字符串
+
+如果报错：Access denied for user ‘root‘@‘xxxxx‘ (using password: YES)
+解决方法：进入数据库容器并登陆mysql：
+创建新用户
+create user 'admin'@'%' identified by 'password';
+执行授权
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
+刷新
+flush privileges;
+
+最终连接字符串改为
+ "ConnectionString": "server=172.25.0.4;user id=fadmin;password=fUrryshelter_db68_$#@justd;database=FurryshelterAdmin;SslMode=none;AllowPublicKeyRetrieval=True"
 
 
 msql中文乱码
