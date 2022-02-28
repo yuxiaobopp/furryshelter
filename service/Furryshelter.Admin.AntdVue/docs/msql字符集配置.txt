@@ -26,6 +26,9 @@ innodb_file_format_max = Barracuda
 innodb_file_per_table = 1
 innodb_large_prefix = ON
 
+设置完之后，要重新创建数据库
+重新导入表
 创建数据库时候要带上默认字符集参数
 CREATE DATABASE `FurryshelterAdmin` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 mysql数据库生成文件中 创建表 也要指定字符集
+

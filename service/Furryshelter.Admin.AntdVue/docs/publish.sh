@@ -41,9 +41,9 @@ flush privileges;
 如果报错：Access denied for user ‘root‘@‘xxxxx‘ (using password: YES)
 解决方法：进入数据库容器并登陆mysql：
 创建新用户
-create user 'admin'@'%' identified by 'password';
+create user 'fadmin'@'%' identified by 'password';
 执行授权
-GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'fadmin'@'%';
 刷新
 flush privileges;
 

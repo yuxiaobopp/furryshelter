@@ -55,14 +55,14 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'fUrryshe
 
 注释掉skip-grant-tables
 
-create database FurryshelterAdmin;
+CREATE DATABASE `FurryshelterAdmin` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 grant all privileges on FurryshelterAdmin.* to root@'localhost';
 flush privileges;
 
 
 导入数据
-docker cp /root/sql/MySQL.sql mysql-m:/
+docker cp /root/sql/MySQLutf8mb4.sql mysql-m:/
 
 进入数据库容器
 use FurryshelterAdmin;
