@@ -1,3 +1,4 @@
+import React from "react";
 import "./navbar.css";
 import Avatar from "@material-ui/core/Avatar";
 
